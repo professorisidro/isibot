@@ -1,0 +1,30 @@
+Software para Servir
+Resumo: Aqui temos o nosso primeiro estudo de caso completo, com o desafio de fazermos um sistema completo para a Letícia gerenciar e vender seus produtos Natura. Como é o primeiro software e uma versão de 2020/2021 as tecnologias utilizadas estão um tanto quanto "defasadas" em relação ao cenário atual. Entretanto, os conceitos e desafios são perenes e nos ajudam demais a entender desde o requisito, seleção da tecnologia, modificações exigidas pelo cliente (e impacto disso) e entrega.
+
+Complexidade: Média
+
+Salutar - A Clínica de Fisioterapia
+RESUMO: Aqui vamos criar uma aplicação "simples" para uma clínica de fisioterapia que precisa automatizar suas fichas de pacientes. O modelo de dados é bastante simples e nos ajuda a entender mais o processo de início ao fim de construção de um software. Fizemos uma entrevista com o cliente e propusemos um desafio diferente neste projeto: Usar Docker em uma máquina da Oracle Cloud para conseguirmos deixar disponível o projeto.
+
+COMPLEXIDADE: Baixa
+
+A Newsletter da IsiFLIX
+RESUMO: Aqui a idéia é fazermos um modelo simples de envio de emails. Um front extremamente simples para apenas termos um editor WYSIWYG para escrevermos nossa "campanha" de comunicação e enviarmos via serviço de SMTP do Google com JavaMail.
+
+COMPLEXIDADE: Baixa/Média
+
+TrueDev - A API de Comércio Eletrônico
+RESUMO: Neste projeto não pensamos no sistema como um todo, mas apenas em criar uma API baseada num documento de uma entrevista com um cliente. A necessidade é real, porém focamos apenas no back-end. Também não foi feita a pulicação da API em nenhum serviço de nuvem (tipo Heroku, Netlify, Render, entre outros). O foco foi entender um problema e criar uma API para isso!
+
+COMPLEXIDADE: Baixa
+
+The FaceAPP IsiBank Application
+RESUMO: Aqui um dos principais desafios até o momento: integrar diferentes tecnologias, metodologias e práticas para criamos uma API de um Internet banking usando os seguintes recursos
+
+Test-Driven Development (vamos explicando o TDD ao longo da execução do projeto)
+Visão Computacional
+OpenCV/JavaCV e suas bibliotecas
+O Resultado foi fantástico, pois conseguimos resolver o login dos usuários por reconhecimento facial e também por métodos "tradicionais"
+
+COMPLEXIDADE: Alta
+
