@@ -1,0 +1,8 @@
+Indicações de materiais
+
+Dominar API com SpringBoot - https://app.isiflix.com.br/#/serie/12
+Entender sobre desenvolvimento desacoplado - https://app.isiflix.com.br/#/episodio/52
+Aprender sobre docker - https://app.isiflix.com.br/#/serie/5
+Entender sobre conceitos de Java - https://app.isiflix.com.br/#/serie/7
+Entender sobre Bancos de DAdos - https://app.isiflix.com.br/#/serie/3
+Saber o que realmente é um Inner Join - https://app.isiflix.com.br/#/episodio/149
