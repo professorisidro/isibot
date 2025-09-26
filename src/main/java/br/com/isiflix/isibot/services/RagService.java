@@ -5,8 +5,11 @@ import static dev.langchain4j.model.openai.OpenAiChatModelName.GPT_4_O_MINI;
 
 import java.util.List;
 
+import br.com.isiflix.isibot.tools.UMLTool;
 import br.com.isiflix.isibot.utils.Utils;
 import dev.langchain4j.data.document.Document;
+import dev.langchain4j.data.message.AiMessage;
+import dev.langchain4j.data.message.SystemMessage;
 import dev.langchain4j.data.segment.TextSegment;
 import dev.langchain4j.memory.chat.MessageWindowChatMemory;
 import dev.langchain4j.model.chat.ChatModel;
@@ -19,15 +22,19 @@ import dev.langchain4j.store.embedding.inmemory.InMemoryEmbeddingStore;
 
 public class RagService {
 
-	private static final ChatModel CHAT_MODEL = OpenAiChatModel.builder().apiKey(Utils.OPENAI_API_KEY)
-			.modelName(GPT_4_O_MINI).build();
+	private static final ChatModel CHAT_MODEL = OpenAiChatModel.builder()
+			                                                   .apiKey(Utils.OPENAI_API_KEY)
+			                                                   .modelName(GPT_4_O_MINI)
+			                                                   .build();
 
 	public IsiAssistant doRag() {
 		List<Document> documents = loadDocuments(Utils.toPath("./documents"), Utils.glob("*.txt"));
-		return AiServices.builder(IsiAssistant.class).chatModel(CHAT_MODEL) // it should use OpenAI
-																								// LLM
+		return AiServices.builder(IsiAssistant.class)
+				.chatModel(CHAT_MODEL) // it should use OpenAI
 				.chatMemory(MessageWindowChatMemory.withMaxMessages(10)) // it should remember 10 latest messages
 				.contentRetriever(createContentRetriever(documents)) // it should have access to our documents
+				.systemMessageProvider(query -> new SystemMessage(IsiAssistant.SYSTEM_PROMPT).text())
+				.tools(new UMLTool(CHAT_MODEL))
 				.build();
 	}
 

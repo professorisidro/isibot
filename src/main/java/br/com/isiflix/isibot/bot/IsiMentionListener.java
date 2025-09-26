@@ -2,10 +2,15 @@ package br.com.isiflix.isibot.bot;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.List;
 
+import br.com.isiflix.isibot.services.AssistantResponse;
 import br.com.isiflix.isibot.services.IsiAssistant;
 import br.com.isiflix.isibot.utils.Utils;
+import dev.langchain4j.data.message.ChatMessage;
+import dev.langchain4j.data.message.SystemMessage;
+import dev.langchain4j.data.message.UserMessage;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
@@ -59,19 +64,22 @@ public class IsiMentionListener extends ListenerAdapter {
 				}
 			});
 		}
-//		System.out.println("DEBUG = " + str.toString());
-		String resposta = assistant.answer(event.getMessage().getContentDisplay() + " " + str.toString());
-
 		
-		List<String> respostas = Utils.splitMessage(resposta);
 
+//		System.out.println("DEBUG = " + str.toString());
+		AssistantResponse resposta = assistant.answer(event.getMessage().getContentDisplay()+ " "+str.toString());
+
+		System.out.println("LOG - Tokens do Prompt  : " + resposta.getPromptTokens());
+		System.out.println("LOG - Tokens da Resposta: " + resposta.getCompletionTokens());
+		System.out.println("LOG - Total de Tokens   : " + resposta.getTotalTokens());
+		
+		List<String> respostas = Utils.splitMessage("Olá "+event.getAuthor().getAsMention()+ resposta.getAnswer());
+			
 		respostas.stream().forEach(resp -> event.getChannel().sendMessage(resp).queue());
 		
 		
 		// }
 	}
 
-	public void handleCommand(String content, MessageReceivedEvent event) {
-
-	}
+	
 }
